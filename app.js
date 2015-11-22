@@ -4,7 +4,7 @@ var app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('app_files/prod/assets'));
 //app.use(express.static(path.join(__dirname, '/assets')));
 
 app.locals.apptitle = "SuperMesh Node";
