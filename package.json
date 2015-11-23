@@ -4,6 +4,7 @@
   "description": "SuperMesh Meshnet node",
   "main": "app.js",
   "scripts": {
+    "start" : "grunt build && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Satinderjit Singh",
