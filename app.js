@@ -1,6 +1,7 @@
 var express = require ('express');
 var path = require('path');
 var app = express();
+var SuperMesh = require("./app_files/js/app_functions.js");
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +25,10 @@ app.get('/admin', function(req, res) {
 app.get('*', function(req, res) {
   res.send('Bad Route');
 });
+
+//Testing SuperMesh functions file.
+//SuperMesh.sayHelloInEnglish();
+//SuperMesh.ExecuteProcess('ipconfig','/all');
 
 var server = app.listen(3000, function() {
 	console.log('Listening on port 3000');

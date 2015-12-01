@@ -1,0 +1,47 @@
+                    <!-- Mega Form -->
+                    <div class="block block-bordered">
+                        <div class="block-header bg-gray-lighter">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Network Settings</h3>
+                        </div>
+                        <div class="block-content">
+                            <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="ip-address">IP Address</label>
+                                                <input class="form-control input-lg" type="text" id="ip-address" name="ip-address" placeholder="e.g. 192.168.10.1">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="subnet-mask">Subnet Mask</label>
+                                                <input class="form-control input-lg" type="text" id="subnet-mask" name="subnet-mask" placeholder="e.g. 255.255.255.0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label for="gateway">Gateway</label>
+                                                <input class="form-control input-lg" type="text" id="gateway" name="gateway" placeholder="e.g. 192.168.10.1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-info" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END Mega Form -->
