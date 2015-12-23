@@ -1,2 +1,4 @@
 app_files/prod
 node_modules
+npm-debug.log
+
