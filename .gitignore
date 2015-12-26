@@ -1,4 +1,4 @@
-app_files/prod
+public/prod
 node_modules
 npm-debug.log
 

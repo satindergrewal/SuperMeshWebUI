@@ -5,8 +5,8 @@ module.exports = function (grunt) {
                 '* <%= pkg.name %> - v<%= pkg.version %> - Auto-compiled on <%= grunt.template.today("yyyy-mm-dd") %> - Copyright <%= grunt.template.today("yyyy") %> \n' +
                 '* @author <%= pkg.author %>\n' +
                 '*/',
-        pathDev: 'app_files/src',
-        pathBuild: 'app_files/prod',
+        pathDev: 'public/src',
+        pathBuild: 'public/prod',
         pathAssets: 'assets',
         watch: {
             styles: {
