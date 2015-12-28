@@ -31,7 +31,7 @@ app.locals.apptitle = "SuperMesh Node";
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/network', network);
+app.use('/admin/network', network);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

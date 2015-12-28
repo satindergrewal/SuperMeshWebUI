@@ -5,19 +5,22 @@ module.exports = {
   },
 
   //Start Process by passing executable and its attribute.
-  ExecuteProcess: function(prcs,atrbs) {
+  ExecuteProcess: function(prcs,atrbs,callback) {
     var spawn = require('child_process').spawn,
     ExecShellCmd = spawn(prcs, [atrbs]);
+    var result = '';
     ExecShellCmd.stdout.on('data', function (data) {
-      console.log('stdout: ' + data); 
+      //console.log('Stdout: ' + data);
+      result += data.toString();
     });
-    
+
     ExecShellCmd.stderr.on('data', function (data) {
       console.log('stderr: ' + data);
     });
     
     ExecShellCmd.on('close', function (code) {
-      console.log('child process exited with code ' + code);
+      //console.log('child process exited with code ' + code);
+      callback(result);
     });
   }
 
