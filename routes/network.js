@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/getip', function(req, res, next) {
 	var ifoutput = SuperMesh.ExecuteProcess('private/system_scripts/read_wlan0.sh','', function(Output) {
 		//console.log(Output);
-		res.send('{' + Output + '');
+		res.send(Output);
 	});
 
 	//console.log(SuperMesh.ExecuteProcess('echo','Hello'));
