@@ -1,49 +1,116 @@
-                    <!-- Mega Form -->
-                    <div class="block block-bordered">
-                        <div class="block-header bg-gray-lighter">
+                    <!-- eth0 Form -->
+                    <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                    <div class="col-md-6">
+                    <div class="block block-themed">
+                        <div class="block-header bg-primary">
                             <ul class="block-options">
                                 <li>
-                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="network"><i class="si si-refresh"></i></button>
                                 </li>
                                 <li>
                                     <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
                                 </li>
                             </ul>
-                            <h3 class="block-title">Network Settings</h3>
+                            <h3 class="block-title">Interface: eth0 <small>(First LAN Interface)</small></h3>
                         </div>
                         <div class="block-content">
-                            <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
                                 <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label for="ip-address">IP Address</label>
-                                                <input class="form-control input-lg" type="text" id="ip-address" name="ip-address" placeholder="e.g. 192.168.10.1">
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label for="subnet-mask">Subnet Mask</label>
-                                                <input class="form-control input-lg" type="text" id="subnet-mask" name="subnet-mask" placeholder="e.g. 255.255.255.0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label for="gateway">Gateway</label>
-                                                <input class="form-control input-lg" type="text" id="gateway" name="gateway" placeholder="e.g. 192.168.10.1">
+                                                <label class="css-input css-radio css-radio-default push-10-r">
+                                                    <input type="radio" id="eth0_static" name="eth0_dhcp_satic" value="static"><span></span> Static
+                                                </label>
+                                                <label class="css-input css-radio css-radio-default">
+                                                    <input type="radio" id="eth0_dhcp" name="eth0_dhcp_satic" value="dhcp"><span></span> DHCP
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="eth0_ip_address" name="eth0_ip_address" placeholder="e.g. 192.168.10.1">
+                                                <label for="eth0_ip_address">IP Address</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="eth0_subnet_mask" name="eth0_subnet_mask" placeholder="e.g. 255.255.255.0">
+                                                <label for="eth0_subnet_mask">Subnet Mask</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="eth0_gateway" name="eth0_gateway" placeholder="e.g. 192.168.10.1">
+                                                <label for="eth0_gateway">Gateway</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <button class="btn btn-info" type="submit">Submit</button>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- END eth0 Form -->
+                    <!-- wlan0 Form -->
+                    <div class="col-md-6">
+                    <div class="block block-themed">
+                        <div class="block-header bg-success">
+                            <ul class="block-options">
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="network"><i class="si si-refresh"></i></button>
+                                </li>
+                                <li>
+                                    <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Interface: wlan0 <small>(First Wirless Adaptor)</small></h3>
+                        </div>
+                        <div class="block-content">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label class="css-input css-radio css-radio-default push-10-r">
+                                                    <input type="radio" id="wlan0_static" name="wlan0_dhcp_satic" value="static"><span></span> Static
+                                                </label>
+                                                <label class="css-input css-radio css-radio-default">
+                                                    <input type="radio" id="wlan0_dhcp" name="wlan0_dhcp_satic" value="dhcp"><span></span> DHCP
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="wlan0_ip_address" name="wlan0_ip_address" placeholder="e.g. 192.168.10.1">
+                                                <label for="wlan0_ip_address">IP Address</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="wlan0_subnet_mask" name="wlan0_subnet_mask" placeholder="e.g. 255.255.255.0">
+                                                <label for="wlan0_subnet_mask">Subnet Mask</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <div class="form-material">
+                                                <input class="form-control input-lg" type="text" id="wlan0_gateway" name="wlan0_gateway" placeholder="e.g. 192.168.10.1">
+                                                <label for="wlan0_gateway">Gateway</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="col-xs-12" style="text-align: center;">
+                                    <button class="btn btn-info" type="submit">Update</button>
+                                </div>
+                            </div>
                             </form>
                         </div>
                     </div>
-                    <!-- END Mega Form -->
+                    <!-- END wlan0 Form -->
                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
                     <script src="/js/network.js"></script>
