@@ -24,6 +24,8 @@ To initialize SuperMeshWebUI nodejs app:
 
 `npm install`
 
+`npm install -g grunt-cli`
+
 `grunt build`
 
 Now start SuperMeshWebUI nodejs app:
