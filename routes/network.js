@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 
 // SuperMesh app functions
@@ -10,10 +11,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/getip', function(req, res, next) {
-	var ifoutput = SuperMesh.ExecuteProcess('private/system_scripts/read_wlan0.sh','', function(Output) {
-		//console.log(Output);
-		res.send(Output);
+
+	var ifoutput;
+	fs.readFile('private/system_scripts/interfaces.data', 'utf8', function (err, data) {
+	  if (err) throw err;
+	  ifoutput = JSON.parse(data);
+	  res.send(ifoutput);
 	});
+
+	//var ifoutput = SuperMesh.ExecuteProcess('private/system_scripts/read_wlan0.sh','', function(Output) {
+		//console.log(Output);
+		//res.send(Output);
+	//});
 
 	//console.log(SuperMesh.ExecuteProcess('echo','Hello'));
 	//console.log('IfOutput: ' + ifoutput);
