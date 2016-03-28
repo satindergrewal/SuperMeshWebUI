@@ -19,9 +19,9 @@ $(document).ready(function() {
     $('input[type=radio][name=eth0_dhcp_satic]').change(function() {
         if (this.value == 'dhcp') {
             $( "#eth0_dhcp" ).prop( "checked", true );
-            $( "#eth0_ip_address" ).val('');
+            /*$( "#eth0_ip_address" ).val('');
             $( "#eth0_subnet_mask" ).val('');
-            $( "#eth0_gateway" ).val('');
+            $( "#eth0_gateway" ).val('');*/
             $( "#eth0_ip_address" ).prop( "disabled", true );
             $( "#eth0_subnet_mask" ).prop( "disabled", true );
             $( "#eth0_gateway" ).prop( "disabled", true );
@@ -38,9 +38,9 @@ $(document).ready(function() {
     $('input[type=radio][name=wlan0_dhcp_satic]').change(function() {
         if (this.value == 'dhcp') {
             $( "#wlan0_dhcp" ).prop( "checked", true );
-            $( "#wlan0_ip_address" ).val('');
+            /*$( "#wlan0_ip_address" ).val('');
             $( "#wlan0_subnet_mask" ).val('');
-            $( "#wlan0_gateway" ).val('');
+            $( "#wlan0_gateway" ).val('');*/
             $( "#wlan0_ip_address" ).prop( "disabled", true );
             $( "#wlan0_subnet_mask" ).prop( "disabled", true );
             $( "#wlan0_gateway" ).prop( "disabled", true );
@@ -50,6 +50,48 @@ $(document).ready(function() {
             $( "#wlan0_ip_address" ).prop( "disabled", false );
             $( "#wlan0_subnet_mask" ).prop( "disabled", false );
             $( "#wlan0_gateway" ).prop( "disabled", false );
+        }
+    });
+
+
+
+
+
+    //Update LAN1 input values on DHCP/Static options selection change
+    $('input[type=radio][name=eth1_dhcp_satic]').change(function() {
+        if (this.value == 'dhcp') {
+            $( "#eth1_dhcp" ).prop( "checked", true );
+            /*$( "#eth1_ip_address" ).val('');
+            $( "#eth1_subnet_mask" ).val('');
+            $( "#eth1_gateway" ).val('');*/
+            $( "#eth1_ip_address" ).prop( "disabled", true );
+            $( "#eth1_subnet_mask" ).prop( "disabled", true );
+            $( "#eth1_gateway" ).prop( "disabled", true );
+        }
+        else if (this.value == 'static') {
+            $( "#eth1_static" ).prop( "checked", true );
+            $( "#eth1_ip_address" ).prop( "disabled", false );
+            $( "#eth1_subnet_mask" ).prop( "disabled", false );
+            $( "#eth1_gateway" ).prop( "disabled", false );
+        }
+    });
+    
+    //Update WLAN1 input values on DHCP/Static options selection change
+    $('input[type=radio][name=wlan1_dhcp_satic]').change(function() {
+        if (this.value == 'dhcp') {
+            $( "#wlan1_dhcp" ).prop( "checked", true );
+            /*$( "#wlan1_ip_address" ).val('');
+            $( "#wlan1_subnet_mask" ).val('');
+            $( "#wlan1_gateway" ).val('');*/
+            $( "#wlan1_ip_address" ).prop( "disabled", true );
+            $( "#wlan1_subnet_mask" ).prop( "disabled", true );
+            $( "#wlan1_gateway" ).prop( "disabled", true );
+        }
+        else if (this.value == 'static') {
+            $( "#wlan1_static" ).prop( "checked", true );
+            $( "#wlan1_ip_address" ).prop( "disabled", false );
+            $( "#wlan1_subnet_mask" ).prop( "disabled", false );
+            $( "#wlan1_gateway" ).prop( "disabled", false );
         }
     });
 
@@ -68,29 +110,57 @@ function populateIPInfo() {
     	//console.log(data[0].wlan0);
 
         //Enable/Disable and feed eth0 data to form input fields
-        if ( data[0].eth0.dhcp_static == 'dhcp' ) {
+        if ( data['eth0_iface'] == 'dhcp' ) {
             $( "#eth0_dhcp" ).prop( "checked", true );
             $( "#eth0_ip_address" ).prop( "disabled", true );
             $( "#eth0_subnet_mask" ).prop( "disabled", true );
             $( "#eth0_gateway" ).prop( "disabled", true );
         } else {
             $( "#eth0_static" ).prop( "checked", true );
-            $( "#eth0_ip_address" ).val( data[0].eth0.addr );
-            $( "#eth0_subnet_mask" ).val( data[0].eth0.netmask );
-            $( "#eth0_gateway" ).val( data[0].eth0.gateway );
+            $( "#eth0_ip_address" ).val( data['eth0_addr'] );
+            $( "#eth0_subnet_mask" ).val( data['eth0_netmask'] );
+            $( "#eth0_gateway" ).val( data['eth0_gateway'] );
         }
 
         //Enable/Disable and feed wlan0 data to form input fields
-        if ( data[1].wlan0.dhcp_static == 'dhcp' ) {
+        if ( data['wlan0_iface'] == 'dhcp' ) {
             $( "#wlan0_dhcp" ).prop( "checked", true );
             $( "#wlan0_ip_address" ).prop( "disabled", true );
             $( "#wlan0_subnet_mask" ).prop( "disabled", true );
             $( "#wlan0_gateway" ).prop( "disabled", true );
         } else {
             $( "#wlan0_static" ).prop( "checked", true );
-            $( "#wlan0_ip_address" ).val( data[1].wlan0.addr );
-            $( "#wlan0_subnet_mask" ).val( data[1].wlan0.netmask );
-            $( "#wlan0_gateway" ).val( data[1].wlan0.gateway );
+            $( "#wlan0_ip_address" ).val( data['wlan0_addr'] );
+            $( "#wlan0_subnet_mask" ).val( data['wlan0_netmask'] );
+            $( "#wlan0_gateway" ).val( data['wlan0_gateway'] );
+        }
+
+
+
+        //Enable/Disable and feed eth1 data to form input fields
+        if ( data['eth1_iface'] == 'dhcp' ) {
+            $( "#eth1_dhcp" ).prop( "checked", true );
+            $( "#eth1_ip_address" ).prop( "disabled", true );
+            $( "#eth1_subnet_mask" ).prop( "disabled", true );
+            $( "#eth1_gateway" ).prop( "disabled", true );
+        } else {
+            $( "#eth1_static" ).prop( "checked", true );
+            $( "#eth1_ip_address" ).val( data['eth1_addr'] );
+            $( "#eth1_subnet_mask" ).val( data['eth1_netmask'] );
+            $( "#eth1_gateway" ).val( data['eth1_gateway'] );
+        }
+
+        //Enable/Disable and feed wlan1 data to form input fields
+        if ( data['wlan1_iface'] == 'dhcp' ) {
+            $( "#wlan1_dhcp" ).prop( "checked", true );
+            $( "#wlan1_ip_address" ).prop( "disabled", true );
+            $( "#wlan1_subnet_mask" ).prop( "disabled", true );
+            $( "#wlan1_gateway" ).prop( "disabled", true );
+        } else {
+            $( "#wlan1_static" ).prop( "checked", true );
+            $( "#wlan1_ip_address" ).val( data['wlan1_addr'] );
+            $( "#wlan1_subnet_mask" ).val( data['wlan1_netmask'] );
+            $( "#wlan1_gateway" ).val( data['wlan1_gateway'] );
         }
 
 
