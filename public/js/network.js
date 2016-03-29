@@ -33,6 +33,26 @@ $(document).ready(function() {
             $( "#eth0_gateway" ).prop( "disabled", false );
         }
     });
+
+
+    //Update LAN0 input values on Enable/Disable options selection change
+    $('input[type=checkbox][id=eth0_enable_disable]').change(function() {
+        console.log($( "#eth0_enable_disable" ).is(':checked'));
+        if ($( "#eth0_enable_disable" ).is(':checked') == false ) {
+            $( "#eth0_addr" ).prop( "disabled", true );
+            $( "#eth0_netmask" ).prop( "disabled", true );
+            $( "#eth0_gateway" ).prop( "disabled", true );
+        }
+        else if ($( "#eth0_enable_disable" ).is(':checked') == true ) {
+            $( "#eth0_addr" ).prop( "disabled", false );
+            $( "#eth0_netmask" ).prop( "disabled", false );
+            $( "#eth0_gateway" ).prop( "disabled", false );
+        }
+    });
+
+
+
+
     
     //Update WLAN0 input values on DHCP/Static options selection change
     $('input[type=radio][name=wlan0_dhcp_satic]').change(function() {
@@ -47,6 +67,21 @@ $(document).ready(function() {
         }
         else if (this.value == 'static') {
             $( "#wlan0_static" ).prop( "checked", true );
+            $( "#wlan0_addr" ).prop( "disabled", false );
+            $( "#wlan0_netmask" ).prop( "disabled", false );
+            $( "#wlan0_gateway" ).prop( "disabled", false );
+        }
+    });
+
+    //Update WLAN0 input values on Enable/Disable options selection change
+    $('input[type=checkbox][id=wlan0_enable_disable]').change(function() {
+        console.log($( "#wlan0_enable_disable" ).is(':checked'));
+        if ($( "#wlan0_enable_disable" ).is(':checked') == false ) {
+            $( "#wlan0_addr" ).prop( "disabled", true );
+            $( "#wlan0_netmask" ).prop( "disabled", true );
+            $( "#wlan0_gateway" ).prop( "disabled", true );
+        }
+        else if ($( "#wlan0_enable_disable" ).is(':checked') == true ) {
             $( "#wlan0_addr" ).prop( "disabled", false );
             $( "#wlan0_netmask" ).prop( "disabled", false );
             $( "#wlan0_gateway" ).prop( "disabled", false );
@@ -75,7 +110,26 @@ $(document).ready(function() {
             $( "#eth1_gateway" ).prop( "disabled", false );
         }
     });
+
+    //Update LAN1 input values on Enable/Disable options selection change
+    $('input[type=checkbox][id=eth1_enable_disable]').change(function() {
+        console.log($( "#eth1_enable_disable" ).is(':checked'));
+        if ($( "#eth1_enable_disable" ).is(':checked') == false ) {
+            $( "#eth1_addr" ).prop( "disabled", true );
+            $( "#eth1_netmask" ).prop( "disabled", true );
+            $( "#eth1_gateway" ).prop( "disabled", true );
+        }
+        else if ($( "#eth1_enable_disable" ).is(':checked') == true ) {
+            $( "#eth1_addr" ).prop( "disabled", false );
+            $( "#eth1_netmask" ).prop( "disabled", false );
+            $( "#eth1_gateway" ).prop( "disabled", false );
+        }
+    });
     
+
+
+
+
     //Update WLAN1 input values on DHCP/Static options selection change
     $('input[type=radio][name=wlan1_dhcp_satic]').change(function() {
         if (this.value == 'dhcp') {
@@ -89,6 +143,21 @@ $(document).ready(function() {
         }
         else if (this.value == 'static') {
             $( "#wlan1_static" ).prop( "checked", true );
+            $( "#wlan1_addr" ).prop( "disabled", false );
+            $( "#wlan1_netmask" ).prop( "disabled", false );
+            $( "#wlan1_gateway" ).prop( "disabled", false );
+        }
+    });
+
+    //Update WLAN1 input values on Enable/Disable options selection change
+    $('input[type=checkbox][id=wlan1_enable_disable]').change(function() {
+        console.log($( "#wlan1_enable_disable" ).is(':checked'));
+        if ($( "#wlan1_enable_disable" ).is(':checked') == false ) {
+            $( "#wlan1_addr" ).prop( "disabled", true );
+            $( "#wlan1_netmask" ).prop( "disabled", true );
+            $( "#wlan1_gateway" ).prop( "disabled", true );
+        }
+        else if ($( "#wlan1_enable_disable" ).is(':checked') == true ) {
             $( "#wlan1_addr" ).prop( "disabled", false );
             $( "#wlan1_netmask" ).prop( "disabled", false );
             $( "#wlan1_gateway" ).prop( "disabled", false );
@@ -126,6 +195,9 @@ function populateIPInfo() {
         }
         if ( data['eth0_enable_disable'] == '# ' ) {
             $( "#eth0_enable_disable" ).prop( "checked", false );
+            $( "#eth0_addr" ).prop( "disabled", true );
+            $( "#eth0_netmask" ).prop( "disabled", true );
+            $( "#eth0_gateway" ).prop( "disabled", true );
         } else {
             $( "#eth0_enable_disable" ).prop( "checked", true );
         }
@@ -147,6 +219,9 @@ function populateIPInfo() {
         }
         if ( data['wlan0_enable_disable'] == '# ' ) {
             $( "#wlan0_enable_disable" ).prop( "checked", false );
+            $( "#wlan0_addr" ).prop( "disabled", true );
+            $( "#wlan0_netmask" ).prop( "disabled", true );
+            $( "#wlan0_gateway" ).prop( "disabled", true );
         } else {
             $( "#wlan0_enable_disable" ).prop( "checked", true );
         }
@@ -170,6 +245,9 @@ function populateIPInfo() {
         }
         if ( data['eth1_enable_disable'] == '# ' ) {
             $( "#eth1_enable_disable" ).prop( "checked", false );
+            $( "#eth1_addr" ).prop( "disabled", true );
+            $( "#eth1_netmask" ).prop( "disabled", true );
+            $( "#eth1_gateway" ).prop( "disabled", true );
         } else {
             $( "#eth1_enable_disable" ).prop( "checked", true );
         }
@@ -191,6 +269,9 @@ function populateIPInfo() {
         }
         if ( data['wlan1_enable_disable'] == '# ' ) {
             $( "#wlan1_enable_disable" ).prop( "checked", false );
+            $( "#wlan1_addr" ).prop( "disabled", true );
+            $( "#wlan1_netmask" ).prop( "disabled", true );
+            $( "#wlan1_gateway" ).prop( "disabled", true );
         } else {
             $( "#wlan1_enable_disable" ).prop( "checked", true );
         }
