@@ -612,6 +612,25 @@ var App = function() {
         }
     };
 
+    // Manage page loading screen functionality
+    var uiLoader = function($mode) {
+        var $lpageLoader = jQuery('#page-loader');
+
+        if ($mode === 'show') {
+            if ($lpageLoader.length) {
+                $lpageLoader.fadeIn(250);
+            } else {
+                $lBody.prepend('<div id="page-loader"></div>');
+            }
+        } else if ($mode === 'hide') {
+            if ($lpageLoader.length) {
+                $lpageLoader.fadeOut(250);
+            }
+        }
+
+        return false;
+    };
+
     /*
      ********************************************************************************************
      *
@@ -1046,7 +1065,7 @@ var App = function() {
                     },
                     offset: 20,
                     spacing: 10,
-                    z_index: 1031,
+                    z_index: 1033,
                     delay: 5000,
                     timer: 1000,
                     animate: {
@@ -1170,7 +1189,9 @@ var App = function() {
         jQuery('.js-rangeslider').each(function(){
             var $input = jQuery(this);
 
-            $input.ionRangeSlider();
+            $input.ionRangeSlider({
+                input_values_separator: ';'
+            });
         });
     };
 
@@ -1204,6 +1225,9 @@ var App = function() {
                 case 'uiYearCopy':
                     uiYearCopy();
                     break;
+                case 'uiLoader':
+                    uiLoader('hide');
+                    break;
                 default:
                     // Init all vital functions
                     uiInit();
@@ -1215,10 +1239,14 @@ var App = function() {
                     uiToggleClass();
                     uiScrollTo();
                     uiYearCopy();
+                    uiLoader('hide');
             }
         },
         layout: function($mode) {
             uiLayoutApi($mode);
+        },
+        loader: function($mode) {
+            uiLoader($mode);
         },
         blocks: function($block, $mode) {
             uiBlocksApi($block, $mode);

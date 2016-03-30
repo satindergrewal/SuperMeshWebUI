@@ -60,6 +60,9 @@ var BaseUIChat = function() {
                 return false;
         }
 
+        // Enable scroll lock to chat talk window
+        $cTalk.scrollLock();
+
         // Init form submission
         $cform.on('submit', function(e){
             // Stop form submission

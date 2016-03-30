@@ -733,6 +733,10 @@
     }
 
     // Layout
+    #page-loader:after {
+        background-color: @brand-primary;
+    }
+
     .header-navbar-transparent.header-navbar-fixed.header-navbar-scroll {
         #header-navbar {
             background-color: @brand-dark;
@@ -887,5 +891,9 @@
         .select2-results__option--highlighted[aria-selected] {
             background-color: @brand-primary;
         }
+    }
+
+    .autocomplete-suggestion b {
+        color: @brand-primary;
     }
 }

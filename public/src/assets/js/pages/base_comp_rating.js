@@ -23,7 +23,7 @@ var BaseCompRating = function() {
                 cancel: $ratingEl.data('cancel') ? $ratingEl.data('cancel') : false,
                 target: $ratingEl.data('target') ? $ratingEl.data('target') : false,
                 targetScore: $ratingEl.data('target-score') ? $ratingEl.data('target-score') : false,
-                precision  : $ratingEl.data('precision') ? $ratingEl.data('precision') : false,
+                precision: $ratingEl.data('precision') ? $ratingEl.data('precision') : false,
                 cancelOff: $ratingEl.data('cancel-off') ? $ratingEl.data('cancel-off') : 'fa fa-fw fa-times text-danger',
                 cancelOn: $ratingEl.data('cancel-on') ? $ratingEl.data('cancel-on') : 'fa fa-fw fa-times',
                 starHalf: $ratingEl.data('star-half') ? $ratingEl.data('star-half') : 'fa fa-fw fa-star-half-o text-warning',
