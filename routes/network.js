@@ -99,14 +99,14 @@ router.post('/update', function(req, res) {
 		if (err) return console.log(err)
 			console.log(JSON.stringify(interfacesData, null, 2))
 			//console.log('writing to ' + interfacesFile)
-			res.send((err === null) ? { msg: '' } : { msg: err });
+			//res.send((err === null) ? { msg: '' } : { msg: err });
+			
+			//Execute cfengine script to make changes to network settings and restart network service.
+			var ifoutput = SuperMesh.ExecuteProcess('sudo','private/system_scripts/edit_network_config.cf', function(Output) {
+			console.log(Output);
+			res.send(Output);
+			});
 		});
-
-	//Execute cfengine script to make changes to network settings and restart network service.
-	//var ifoutput = SuperMesh.ExecuteProcess('private/system_scripts/edit_network_config.cf','', function(Output) {
-	//	console.log(Output);
-	//	res.send(Output);
-	//});
 
 
 });

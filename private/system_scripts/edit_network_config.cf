@@ -1,4 +1,4 @@
-#!/var/cfengine/bin/cf-agent
+#!/var/cfengine/bin/cf-agent -K
   body common control
 {
     bundlesequence => { network_config, services_restart };

@@ -28,9 +28,9 @@ To initialize SuperMeshWebUI nodejs app:
 
 `grunt build`
 
-Now start SuperMeshWebUI nodejs app:
+Now start SuperMeshWebUI nodejs app with root privilege:
 
-`npm start`
+`sudo npm start`
 
 Access SuperMesh Web UI from system's address on port `3000`. Like http://localhost:3000
 
