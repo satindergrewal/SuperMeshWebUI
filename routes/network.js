@@ -102,7 +102,7 @@ router.post('/update', function(req, res) {
 			//res.send((err === null) ? { msg: '' } : { msg: err });
 			
 			//Execute cfengine script to make changes to network settings and restart network service.
-			var ifoutput = SuperMesh.ExecuteProcess('sudo','private/system_scripts/edit_network_config.cf', function(Output) {
+			var ifoutput = SuperMesh.ExecuteProcess('sudo /var/cfengine/bin/cf-agent -K','private/system_scripts/edit_network_config.cf', function(Output) {
 			console.log(Output);
 			res.send(Output);
 			});
