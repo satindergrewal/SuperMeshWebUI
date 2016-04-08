@@ -2,6 +2,10 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
+var sys = require('sys')
+var exec = require('child_process').exec;
+
+
 // SuperMesh app functions
 var SuperMesh = require("../private/js/app_functions.js");
 
@@ -102,9 +106,11 @@ router.post('/update', function(req, res) {
 			//res.send((err === null) ? { msg: '' } : { msg: err });
 			
 			//Execute cfengine script to make changes to network settings and restart network service.
-			var ifoutput = SuperMesh.ExecuteProcess('sudo /var/cfengine/bin/cf-agent -K','private/system_scripts/edit_network_config.cf', function(Output) {
-			console.log(Output);
-			res.send(Output);
+			function puts(error, stdout, stderr) { sys.puts(stdout) }
+			exec("sudo cf-agent -K /opt/SuperMeshWebUI/private/system_scripts/edit_network_config.cf", puts);
+			//var ifoutput = SuperMesh.ExecuteProcess('sudo /var/cfengine/bin/cf-agent -K','private/system_scripts/edit_network_config.cf', function(Output) {
+			//console.log(Output);
+			//res.send(Output);
 			});
 		});
 
