@@ -111,7 +111,7 @@ router.post('/update', function(req, res) {
 			//var ifoutput = SuperMesh.ExecuteProcess('sudo /var/cfengine/bin/cf-agent -K','private/system_scripts/edit_network_config.cf', function(Output) {
 			//console.log(Output);
 			//res.send(Output);
-			});
+			//});
 		});
 
 
